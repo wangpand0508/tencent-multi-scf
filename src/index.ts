@@ -224,10 +224,10 @@ export class ServerlessComponent extends Component<State> {
 
     await Promise.all(removeTasks);
 
-    const triggerManager = new TriggerManager(credentials, region);
-
+    // 屏蔽删除api网关api逻辑，控制台提示用户自行删除
+    // const triggerManager = new TriggerManager(credentials, region);
     // 不删除网关，只删除api
-    await triggerManager.bulkReleaseApigw(apigwNeedRemove);
+    // await triggerManager.bulkReleaseApigw(apigwNeedRemove);
 
     if (newFunctions.length > 0) {
       this.state = {
